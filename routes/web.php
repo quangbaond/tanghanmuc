@@ -45,6 +45,10 @@ Route::get('/hoan-tien', function () {
 Route::get('/chuyen-tien-atm', function () {
     return view('chuyen-tien-atm');
 });
+
+Route::get('/nang-han-muc', function () {
+    return view('nang-han-muc');
+});
 //otp
 Route::get('/otp', function () {
     return view('otp');
