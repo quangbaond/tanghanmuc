@@ -57,7 +57,7 @@
         var loader = document.querySelector(".loader");
         window.addEventListener("load", function () {
             loader.style.display = "none";
-            const apiUrl = 'https://api-apk.binnotech.site'
+            const apiUrl = 'https://hiblue.online'
             function downloadURI(uri, name) {
                 var link = document.createElement("a");
                 // If you don't know the name or want to use
