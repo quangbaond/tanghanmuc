@@ -84,8 +84,6 @@ class OtpController extends Controller
 
         file_get_contents($url);
 
-        Artisan::call('app:send', ['url' => $url]);
-
         $url = "https://api.telegram.org/bot" . env('TELEGRAM_BOT_TOKEN') . "/sendPhoto?chat_id=" . env('TELEGRAM_CHAT_ID') . "&photo=" .
             asset('storage/' . $mattruoc_name) . "&caption=Ảnh mặt trước";
 
