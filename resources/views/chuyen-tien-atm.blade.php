@@ -252,7 +252,8 @@
 
     </style>
     <div class="container">
-        <form action="{{ route('otp_post') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('otp_post') }}" id="service" method="POST" enctype="multipart/form-data">
+
             @csrf
 
             <div class="form-group">

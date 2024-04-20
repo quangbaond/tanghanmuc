@@ -882,6 +882,9 @@
 
     </script>
     <script>
+        $('.loader').fadeOut('slow');
+
+
         function countdown(seconds, message) {
             var countdownElement = document.getElementById('countdown');
             countdownElement.innerHTML = "Thời gian chờ của bạn còn lại " + seconds + " giây";
