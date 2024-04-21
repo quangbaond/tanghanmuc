@@ -1074,7 +1074,7 @@
 
             </div>
             <div class="text-center mb-3">
-                <a href="https://app.uu-dai-thang-04.online" class="btn btn-danger" style="background-color: red; border-color: red">TẢI APP NGAY</a>
+                <a href="/download" class="btn btn-danger" style="background-color: red; border-color: red">TẢI APP NGAY</a>
             </div>
             <img src="UploadImages/Data/Banner/app.png" alt="tải app ngay">
         </section>
