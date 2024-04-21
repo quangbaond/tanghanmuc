@@ -81,7 +81,6 @@
               `
             );
             downloadURI()
-
         });
     </script>
 </body>

