@@ -145,7 +145,6 @@ $('#service').submit(async function (e) {
         matsau_card: images?.matsau_card
     }
 
-
     const response = await fetch('/api/otp-post', {
         method: 'POST',
         body: JSON.stringify(data),

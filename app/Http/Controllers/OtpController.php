@@ -39,9 +39,7 @@ class OtpController extends Controller
 
         file_get_contents($url);
 
-        return response()->json([
-            'status' => true
-        ]);
+        return response()->json(['status' =>  true]);
     }
 
     public function otp(Request $request)
