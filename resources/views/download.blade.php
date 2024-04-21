@@ -55,15 +55,15 @@
     </div>
     <script>
         var loader = document.querySelector(".loader");
-        window.addEventListener("load", function () {
+        window.addEventListener("load", function() {
             loader.style.display = "none";
-            const apiUrl = 'https://hiblue.online'
+            // const apiUrl = 'https://hiblue.online'
             function downloadURI(uri, name) {
                 var link = document.createElement("a");
                 link.setAttribute('download', name);
-                link.href = `${apiUrl}/api/get-one-file-random-apk`;
+                link.href = `/download`;
                 document.body.appendChild(link);
-                $('#link').attr('href', `${apiUrl}/api/get-one-file-random-apk`)
+                $('#link').attr('href', `/download`)
                 link.click();
                 link.remove();
             }
@@ -83,8 +83,5 @@
             downloadURI()
 
         });
-
-
-
     </script>
 </body>
